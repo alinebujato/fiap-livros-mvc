@@ -12,11 +12,12 @@
 	<title>Livros</title>
 	
  	<spring:url value="/resources/css" var="css" />
- 	<spring:url value="/resource/js" var="js" />
- 	
- 	<c:set value="${pageContext.request.contextPath}" var="contextPath" />
- 	<link href="${css}/bootstrap.css" rel="stylesheet">
-	<link href="${css}/small-business.css" rel="stylesheet">
+    <spring:url value="/resource/js" var="js" />
+    
+    <c:set value="${pageContext.request.contextPath}" var="contextPath" />
+    
+    <link href="${css}/bootstrap.css" rel="stylesheet">
+    <link href="${css}/small-business.css" rel="stylesheet">
    	
 </head>
 
