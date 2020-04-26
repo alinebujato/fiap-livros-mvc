@@ -9,6 +9,9 @@ public class LivroModel {
 	
 	private Long id;
 	
+	// @NotEmpty(message="É necessário cadastrar o sku.")
+	private int sku;
+	
 	// @NotEmpty(message="Titulo do livro não pode estar vazio.")
 	private String titulo;
 	
@@ -25,9 +28,10 @@ public class LivroModel {
 	// @DecimalMin(value = "1.0", message = "O valor do produto deve ser maior do que  R$ 1,00")
 	private Double preco;	
 	
-	public LivroModel(Long id, String titulo, String editora, String isbn, String sinopse, Double preco) {
+	public LivroModel(Long id, int sku, String titulo, String editora, String isbn, String sinopse, Double preco) {
 		super();
 		this.id = id;
+		this.setSku(sku);
 		this.titulo = titulo;
 		this.editora = editora;
 		this.isbn = isbn;
@@ -41,6 +45,14 @@ public class LivroModel {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public int getSku() {
+		return sku;
+	}
+
+	public void setSku(int sku) {
+		this.sku = sku;
 	}
 
 	public String getTitulo() {
@@ -81,7 +93,6 @@ public class LivroModel {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
-	}
-	
+	}	
 	
 }

@@ -11,16 +11,14 @@ public class LivroRepository {
 
 	private static LivroRepository instance;
 
-	//	Map que simula o banco de dados.
 	private static Map<Long, LivroModel> livros;
 
 	private LivroRepository() {
 		livros = new HashMap<Long, LivroModel>();
-
-		//	"Populando Banco de Dados"
-		livros.put(1L, new LivroModel(1L, "Titulo livro 1", "Editora livro 1", "Banana", "Sinopse 1", 1.0));
-		livros.put(2L, new LivroModel(2L, "Titulo livro 2", "Editora livro 2", "2", "Sinopse 2", 2.0));
-		livros.put(2L, new LivroModel(2L, "Titulo livro 3", "Editora livro 3", "3", "Sinopse 3", 3.0));
+		
+		livros.put(1L, new LivroModel(1L, 123, "Titulo livro 1", "Editora livro 1", "123456", "Sinopse 1", 1.0));
+		livros.put(2L, new LivroModel(2L, 321, "Titulo livro 2", "Editora livro 2", "654321", "Sinopse 2", 2.0));
+		livros.put(2L, new LivroModel(2L, 456, "Titulo livro 3", "Editora livro 3", "142536", "Sinopse 3", 3.0));
 	}
 
 	public static LivroRepository getInstance() {
