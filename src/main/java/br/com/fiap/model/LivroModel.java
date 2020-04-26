@@ -1,31 +1,31 @@
 package br.com.fiap.model;
 
-// import javax.validation.constraints.DecimalMin;
-// import javax.validation.constraints.NotEmpty;
-// import javax.validation.constraints.NotNull;
-// import javax.validation.constraints.Size;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class LivroModel {
 	
 	private Long id;
 	
-	// @NotEmpty(message="É necessário cadastrar o sku.")
+	@NotEmpty(message="É necessário cadastrar o sku.")
 	private int sku;
 	
-	// @NotEmpty(message="Titulo do livro não pode estar vazio.")
+	@NotEmpty(message="Titulo do livro não pode estar vazio.")
 	private String titulo;
 	
-	// @NotEmpty(message="Editora do livro não pode estar vazia.")
+	@NotEmpty(message="Editora do livro não pode estar vazia.")
 	private String editora;
 	
-	// @NotEmpty
+	@NotEmpty
 	private String isbn;
 	
-	// @Size(min = 10, max = 200)
+	@Size(min = 10, max = 200)
 	private String sinopse;
 	
-	// @NotNull(message="Por favor, informe o preço.")
-	// @DecimalMin(value = "1.0", message = "O valor do produto deve ser maior do que  R$ 1,00")
+	@NotNull(message="Por favor, informe o preço.")
+	@DecimalMin(value = "1.0", message = "O valor do produto deve ser maior do que  R$ 1,00")
 	private Double preco;	
 	
 	public LivroModel(Long id, int sku, String titulo, String editora, String isbn, String sinopse, Double preco) {

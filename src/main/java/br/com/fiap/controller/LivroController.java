@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import java.util.List;
+
+import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,8 +58,7 @@ public class LivroController {
 	}
 	
 	@PostMapping("/new")
-	// public String save(@Valid LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-	public String save(LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String save(@Valid LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
 			return "novo-livro";
