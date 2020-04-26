@@ -9,13 +9,13 @@ public class LivroModel {
 	
 	private Long id;
 	
-	@NotEmpty(message="É necessário cadastrar o sku.")
+	@NotEmpty(message="Ã‰ necessÃ¡rio cadastrar um sku.")
 	private int sku;
 	
-	@NotEmpty(message="Titulo do livro não pode estar vazio.")
+	@NotEmpty(message="Titulo do livro nï¿½o pode estar vazio.")
 	private String titulo;
 	
-	@NotEmpty(message="Editora do livro não pode estar vazia.")
+	@NotEmpty(message="Editora do livro nï¿½o pode estar vazia.")
 	private String editora;
 	
 	@NotEmpty
@@ -24,8 +24,8 @@ public class LivroModel {
 	@Size(min = 10, max = 200)
 	private String sinopse;
 	
-	@NotNull(message="Por favor, informe o preço.")
-	@DecimalMin(value = "1.0", message = "O valor do produto deve ser maior do que  R$ 1,00")
+	@NotNull(message="Por favor, informe o preÃ§o.")
+	@DecimalMin(value = "1.0", message = "O valor do produto deve ser maior do que R$ 1,00")
 	private Double preco;	
 	
 	public LivroModel(Long id, int sku, String titulo, String editora, String isbn, String sinopse, Double preco) {

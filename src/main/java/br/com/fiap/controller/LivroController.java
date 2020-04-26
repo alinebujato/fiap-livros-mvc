@@ -48,8 +48,13 @@ public class LivroController {
 	
 	@GetMapping("/form")
 	public String open(@RequestParam String page,
-			@RequestParam(required = false) Long id,
-			@ModelAttribute("livroModel") LivroModel livroModel) {
+					@RequestParam(required = false) Long id,
+					@ModelAttribute("livroModel") LivroModel livroModel,
+					Model model) {
+		
+		if ("editar-livro".equals(page)) {
+			model.addAttribute("produto", livroRepository.findById(id));
+		}
 				
 		return page;
 	}
@@ -59,14 +64,14 @@ public class LivroController {
 		return "novo-livro";
 	}
 	
-	@PostMapping("/new")
-	public String save(@Valid LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	@PostMapping
+	public String save(@Valid LivroModel livroModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
 			return "novo-livro";
 		}
 		
-		livroRepository.Save(livroModel);	
+		livroRepository.save(livroModel);	
 		
 		redirectAttributes.addFlashAttribute("messages", "Livro cadastrado com sucesso.");		
 		return "redirect:/livro";
@@ -82,8 +87,7 @@ public class LivroController {
 	
 	@PutMapping("/{id}")
 	public String updateLivro(@PathVariable("id") long id, 
-			LivroModel livroModel, 
-								Model model) {
+			LivroModel livroModel, Model model) {
 		
 		livroModel.setId(id);
 		livroRepository.update(livroModel);
@@ -93,14 +97,15 @@ public class LivroController {
 		return "redirect:/livro";
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public String deleteLivro(@PathVariable LivroModel livroModel, Model model, RedirectAttributes redirectAttributes) {
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
-		livroRepository.delete(livroModel);
+		livroRepository.deleteById(id);
 		
-		redirectAttributes.addFlashAttribute("messages", "Livro exclu�do com sucesso !");
-	
+		redirectAttributes.addFlashAttribute("messages", "Livro excluído com sucesso!");
+		
 		return "redirect:/livro";
+		
 	}
 
 }

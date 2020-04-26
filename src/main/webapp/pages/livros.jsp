@@ -28,7 +28,7 @@
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
                    <li>
-                       <a href="${contextPath}/livro">Livros</a>
+                       <a class="nav navbar-nav" href="${contextPath}/livro">Home</a>
                    </li>
                </ul>
            </div>
@@ -39,11 +39,11 @@
    		<div class="row">
             <div class="col-md-12">
 				
-				<h1>Livros</h1>
-				
 				<p class="toolbar">
 				
-					<a class="create btn btn-default" href="${contextPath}/livro/form?page=novo-livro">Novo Livro</a>
+					<h2 class="text-info text-center">Livros disponíveis</h2>
+				
+					<a class="create btn btn-info" href="${contextPath}/livro/form?page=novo-livro">Cadastrar livro</a>
 					
 					<c:if test="${not empty messages}">
 						<h3 class="alert alert-warning">${messages}</h3>
@@ -52,12 +52,13 @@
 					<span class="alert"></span>
 				</p>
 				
-				<table class="table table-striped" cellspacing="0" cellpadding="0">
+				<table class="table table-hover table-bordered" cellspacing="0" cellpadding="0">
 					<thead>
 						<tr>
-							<th data-field="name">Título</th>
-							<th data-field="name">Editora</th>
-							<th data-field="forks_count">Preço</th>
+							<th class="text-center" data-field="name">Título</th>
+							<th class="text-center" data-field="name">Sinopse</th>
+							<th class="text-center" data-field="name">Editora</th>
+							<th class="text-center" data-field="forks_count">Preço</th>
 							<th class="actions" width="220">Ações</th>
 						</tr>
 					</thead>
@@ -66,16 +67,16 @@
 						<c:forEach items="${livros}" var="livro">
 		
 							<tr>
-								<td>${livro.titulo}</td>
+								<td >${livro.titulo}</td>
+								<td>${livro.sinopse}</td>
 								<td>${livro.editora}</td>
-								<td>${livro.preco}</td>
+								<td class="text-center">${livro.preco}</td>
 								
 								<td class="actions">
 									
 									<form:form action="${contextPath}/livro/${livro.id}" method="delete">
-									
-										<a class="btn btn-success btn-xs" href="${contextPath}/livro/${livro.id}">Detalhes</a>
-										<a class="btn btn-warning btn-xs" href="${contextPath}/livro/form?page=editar-livro&id=${livro.id}">Editar</a>
+										<a class="btn bg-primary btn-xs" href="${contextPath}/livro/${livro.id}">Detalhes</a>
+										<a class="btn btn-default btn-xs" href="${contextPath}/livro/form?page=editar-livro&id=${livro.id}">Editar</a>
 										<input type="submit" value="Excluir" class="btn btn-danger btn-xs">
 									</form:form>
 									
