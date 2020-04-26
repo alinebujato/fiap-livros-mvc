@@ -60,7 +60,7 @@ public class LivroController {
 	public String save(LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
-			return "livro-novo";
+			return "novo-livro";
 		}
 		
 		livroRepository.Save(livroModel);	

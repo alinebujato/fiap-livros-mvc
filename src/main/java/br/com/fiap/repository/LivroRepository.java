@@ -18,7 +18,7 @@ public class LivroRepository {
 		
 		livros.put(1L, new LivroModel(1L, 123, "Titulo livro 1", "Editora livro 1", "123456", "Sinopse 1", 1.0));
 		livros.put(2L, new LivroModel(2L, 321, "Titulo livro 2", "Editora livro 2", "654321", "Sinopse 2", 2.0));
-		livros.put(2L, new LivroModel(2L, 456, "Titulo livro 3", "Editora livro 3", "142536", "Sinopse 3", 3.0));
+		livros.put(3L, new LivroModel(3L, 456, "Titulo livro 3", "Editora livro 3", "142536", "Sinopse 3", 3.0));
 	}
 
 	public static LivroRepository getInstance() {

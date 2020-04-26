@@ -31,7 +31,7 @@ public class LivroModel {
 	public LivroModel(Long id, int sku, String titulo, String editora, String isbn, String sinopse, Double preco) {
 		super();
 		this.id = id;
-		this.setSku(sku);
+		this.sku = sku;
 		this.titulo = titulo;
 		this.editora = editora;
 		this.isbn = isbn;
