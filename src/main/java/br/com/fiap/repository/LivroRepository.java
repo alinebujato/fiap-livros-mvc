@@ -1,4 +1,4 @@
-/*package br.com.fiap.repository;
+package br.com.fiap.repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,21 +11,21 @@ public class LivroRepository {
 
 	private static LivroRepository instance;
 
-//	Map que simula o banco de dados.
-	private static Map<Long, LivroModel> produtos;
+	//	Map que simula o banco de dados.
+	private static Map<Long, LivroModel> livros;
 
 	private LivroRepository() {
 		livros = new HashMap<Long, LivroModel>();
 
-//	"Populando Banco de Dados"
-		livros.put(1L, new LivroModel(1L, "Livro 1 Nome", "Sku-01", "Desc Produto 1", 10.50, "O produto 1 é muito bom"));
-		livros.put(2L, new LivroModel(2L, "Livro 2 Nome", "Sku-02", "Desc Produto 2", 3.50, "O produto 2 é muito bom"));
-		livros.put(3L, new LivroModel(3L, "Livro 3 Nome", "Sku-03", "Desc Produto 3", 20.50, "O produto 3 é muito bom"));
+		//	"Populando Banco de Dados"
+		livros.put(1L, new LivroModel(1L, "Titulo livro 1", "Editora livro 1", "Banana", "Sinopse 1", 1.0));
+		livros.put(2L, new LivroModel(2L, "Titulo livro 2", "Editora livro 2", "2", "Sinopse 2", 2.0));
+		livros.put(2L, new LivroModel(2L, "Titulo livro 3", "Editora livro 3", "3", "Sinopse 3", 3.0));
 	}
 
 	public static LivroRepository getInstance() {
 		if(instance == null) {
-			instance = new ProdutoRepository();
+			instance = new LivroRepository();
 		}
 
 		return instance;
@@ -51,9 +51,7 @@ public class LivroRepository {
 	}
 
 	public void delete(LivroModel livro) {
-		livro.remove(produto.getId());
+		livros.remove(livro.getId());
 	}
 
 }
-
-*/

@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.fiap.model.LivroModel;
+import br.com.fiap.repository.LivroRepository;
+
 @Controller
 public class LivroController {
-
-	@RequestMapping(value = {"/livros", "/"}, method = RequestMethod.GET)
-	public String livros(Model model) {
-		model.addAttribute("hello", "Bem vindo ao Spring MVC");
-		return "livros";
-	}
 	
-	/*
 	private LivroRepository livroRepository = LivroRepository.getInstance();
 
 	@GetMapping
@@ -35,7 +29,7 @@ public class LivroController {
 		
 		List<LivroModel> listaDeLivros = livroRepository.findAll();
 		
-		model.addAttribute("livros", listaDelivros);
+		model.addAttribute("livros", listaDeLivros);
 		
 		return "livros";
 	}
@@ -51,26 +45,28 @@ public class LivroController {
 	}
 	
 	@GetMapping("/form")
-	public String open(@RequestParam String page, @RequestParam(required = false) Long id, @ModelAttribute("livroModel") LivroModel livroModel) {
+	public String open(@RequestParam String page,
+			@RequestParam(required = false) Long id,
+			@ModelAttribute("livroModel") LivroModel livroModel) {
 				
 		return page;
 	}
 		
-	
-	//@RequestMapping(value = "/new", method = RequestMethod.GET)
 	@GetMapping("/new")
 	public String form(@ModelAttribute("livroModel") LivroModel livroModel) {
 		return "novo-livro";
 	}
 	
 	@PostMapping("/new")
-	public String save(@Valid LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	// public String save(@Valid LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String save(LivroModel livroModel,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
 			return "livro-novo";
 		}
 		
-		livroRepository.Save(livroModel);		
+		livroRepository.Save(livroModel);	
+		
 		redirectAttributes.addFlashAttribute("messages", "Livro cadastrado com sucesso.");		
 		return "redirect:/livro";
 	}
@@ -84,17 +80,18 @@ public class LivroController {
 	}
 	
 	@PutMapping("/{id}")
-	public String updateLivro(LivroModel livroModel, Model model) {
+	public String updateLivro(@PathVariable("id") long id, 
+			LivroModel livroModel, 
+								Model model) {
 		
-		//produtoModel.setId(id);
+		livroModel.setId(id);
 		livroRepository.update(livroModel);
 		
-		model.addAttribute("livro", livroRepository.findAll());
+		model.addAttribute("livros", livroRepository.findAll());
 		
-		return "redirect:/livros";
+		return "redirect:/livro";
 	}
 	
-	//@RequestMapping(value="/delete/{id}", method = RequestMethod.POST)
 	@DeleteMapping("/delete/{id}")
 	public String deleteLivro(@PathVariable LivroModel livroModel, Model model, RedirectAttributes redirectAttributes) {
 		
@@ -104,5 +101,5 @@ public class LivroController {
 	
 		return "redirect:/livro";
 	}
-	*/
+
 }
