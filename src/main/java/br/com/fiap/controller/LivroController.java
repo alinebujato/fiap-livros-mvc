@@ -36,7 +36,7 @@ public class LivroController {
 		return "livros";
 	}
 	
-	@GetMapping(value = "{/id}")
+	@GetMapping(value = "/{id}")
 	public String findById(@PathVariable("id")long id, Model model) {
 		
 		LivroModel livroEncontrado = livroRepository.findById(id);
@@ -53,7 +53,7 @@ public class LivroController {
 					Model model) {
 		
 		if ("editar-livro".equals(page)) {
-			model.addAttribute("produto", livroRepository.findById(id));
+			model.addAttribute("livro", livroRepository.findById(id));
 		}
 				
 		return page;
@@ -78,7 +78,7 @@ public class LivroController {
 	}
 	
 	@GetMapping("/update/{id}")
-	public String update(@PathVariable("id")long id, Model model) {
+	public String update(@PathVariable("id") long id, Model model) {
 				
 		model.addAttribute("livro", livroRepository.findById(id));
 

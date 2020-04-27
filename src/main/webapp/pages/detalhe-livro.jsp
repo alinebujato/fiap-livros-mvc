@@ -8,7 +8,7 @@
 <head>
 
 	<meta charset="ISO-8859-1">
-	<title>Detalhe livro</title>
+	<title>Detalhes livro</title>
 	
 	<spring:url value="/resources/css" var="css"/>
     <spring:url value="/sresources/js" var="js"/>
@@ -37,42 +37,33 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="well">
+                <div class="well well-lg">
 					
-					<h2>Livro</h2>
+					<h2 class="text-center text-info ">${livro.titulo}</h2>
 					
-						<div class="form-group">
-							<label class="control-label" for="titulo">Título:</label>
-							<b>${livro.titulo}</b>
-                        </div>
-                        
-                        <div class="form-group">
-							<label class="control-label" for="editora">Editora:</label>
-							<label class="label label-default">${livro.editora}</label>
-						</div>
-                        
-                        <div class="form-group">
-							<label class="control-label" for="sku">SKU:</label>
-							<label class="label label-default">${livro.sku}</label>
-						</div>
+					<table class="table table-striped table-bordered" cellspacing="0" cellpadding="0">
+					
+					<thead>
+						<tr>
+							<th class="text-center" data-field="name">Editora</th>
+							<th class="text-center" data-field="name">Sinopse</th>
+							<th class="text-center" data-field="forks_count">Preço</th>
+							<th class="text-center" data-field="name">SKU</th>
+							<th class="text-center" data-field="name">ISBN</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="text-center">${livro.editora}</td>
+								<td class="text-center">${livro.sinopse}</td>
+								<td class="text-center">${livro.preco}</td>
+								<td class="text-center">${livro.sku}</td>
+								<td class="text-center">${livro.isbn}</td>
+							</tr>
+                    </tbody>
+				</table>
 						
-						<div class="form-group">
-							<label class="control-label" for="sinopse">Sinopse:</label>
-							<label class="label label-default">${livro.sinopse}</label>
-						</div>
-						
-						<div class="form-group">
-							<label class="control-label" for="preco">Preço:</label>
-							<label class="label label-default">${livro.preco}</label>
-						</div>
-						
-						<div class="form-group">
-							<label class="control-label" for="isbn">ISBN:</label>
-							<label class="label label-default">${livro.isbn}</label>
-						</div>
-						<hr>
-						
-						<a class="btn btn-default btn-lg" href="${contextPath}/livros">Voltar</a>
+				<a class="btn btn-default btn-lg" href="${contextPath}/livro">Voltar</a>
 					
                 </div>
             </div>

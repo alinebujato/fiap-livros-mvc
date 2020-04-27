@@ -46,7 +46,7 @@
 					<a class="create btn btn-info" href="${contextPath}/livro/form?page=novo-livro">Cadastrar livro</a>
 					
 					<c:if test="${not empty messages}">
-						<h3 class="alert alert-warning">${messages}</h3>
+						<h2 class="alert alert-warning">${messages}</h2>
 					</c:if>
 	
 					<span class="alert"></span>

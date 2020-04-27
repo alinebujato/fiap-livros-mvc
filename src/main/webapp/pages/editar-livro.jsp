@@ -47,7 +47,7 @@
 						
 						<div class="form-group">
 							<label class="control-label" for="nome">Título:</label>
-							<input type="text" name="titulo" id="titulo" value="${produto.titulo}" class="form-control" maxlength="50" size="50" />
+							<input type="text" name="titulo" id="titulo" value="${livro.titulo}" class="form-control" maxlength="50" size="50" />
                         </div>
                         
                         <div class="form-group">
@@ -57,7 +57,7 @@
 						
 						<div class="form-group">
 							<label class="control-label" for="mesnagem">Sinopse:</label>
-							<textarea id="sinopse" class="form-control" name="sinopse" rows="4" cols="100">${produto.sinopse}</textarea>
+							<textarea id="sinopse" class="form-control" name="sinopse" rows="4" cols="100">${livro.sinopse}</textarea>
 						</div>
 						
 						<div class="form-group">

@@ -91,7 +91,7 @@
 						
 						<hr>
 						
-						<a class="btn btn-default btn-lg" href="${contextPath}/livros">Cancelar</a>
+						<a class="btn btn-default btn-lg" href="${contextPath}/livro">Cancelar</a>
 						<button type="submit" class="btn btn-primary btn-lg">Gravar</button>
                             
                         <br>
