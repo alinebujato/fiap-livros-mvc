@@ -49,7 +49,6 @@ public class LivroController {
 	@GetMapping("/form")
 	public String open(@RequestParam String page,
 					@RequestParam(required = false) Long id,
-					@ModelAttribute("livroModel") LivroModel livroModel,
 					Model model) {
 		
 		if ("editar-livro".equals(page)) {
@@ -87,12 +86,14 @@ public class LivroController {
 	
 	@PutMapping("/{id}")
 	public String updateLivro(@PathVariable("id") long id, 
-			LivroModel livroModel, Model model) {
+			LivroModel livroModel, Model model,
+			RedirectAttributes redirectAttributes) {
 		
 		livroModel.setId(id);
 		livroRepository.update(livroModel);
 		
 		model.addAttribute("livros", livroRepository.findAll());
+		redirectAttributes.addFlashAttribute("messages", "Livro editado com sucesso.");	
 		
 		return "redirect:/livro";
 	}
