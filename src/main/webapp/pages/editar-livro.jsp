@@ -39,7 +39,7 @@
             <div class="col-lg-12">
                 <div class="well">
 					
-					<h2>Livro</h2>
+					<h2 class="text-center text-info">Editar livro</h2>
 					
 					<form:form action="${contextPath}/livro/${livro.id}" method="put">
 					
@@ -49,38 +49,38 @@
 						
 						<div class="form-group">
 							<label class="control-label" for="nome">Título:</label>
-							<input type="text" name="titulo" id="titulo" value="${livro.titulo}" class="form-control" maxlength="50" size="50" />
+							<input type="text" placeholder="Digite o título" name="titulo" id="titulo" value="${livro.titulo}" class="form-control" maxlength="50" size="50" />
                         </div>
                         
                         <div class="form-group">
-							<label class="control-label" for="nome">SKU:</label>
-							<input type="text" name="sku" id="sku" value="${livro.sku}" class="form-control" maxlength="50" size="50" />
+							<label class="control-label" for="nome">Editora:</label>
+							<input type="text" placeholder="Digite a editora" name="editora" id="editora" value="${livro.editora}" class="form-control" maxlength="50" size="50" />
 						</div>
-						
+               		
 						<div class="form-group">
 							<label class="control-label" for="mesnagem">Sinopse:</label>
-							<textarea id="sinopse" class="form-control" name="sinopse" rows="4" cols="100">${livro.sinopse}</textarea>
-						</div>
-						
-						<div class="form-group">
-							<label class="control-label" for="nome">Editora:</label>
-							<input type="text" name="editora" id="editora" value="${livro.editora}" class="form-control" maxlength="50" size="50" />
+							<textarea id="sinopse" placeholder="Digite a sinopse" class="form-control" name="sinopse" rows="3" cols="52">${livro.sinopse}</textarea>
 						</div>
 						
 						<div class="form-group">
 							<label class="control-label" for="preco">Preço:</label>
-							<input type="text" name="preco" id="preco" value="${livro.preco}" class="form-control" maxlength="14" size="15" />
+							<input type="text" name="preco" placeholder="Digite o preço" id="preco" value="${livro.preco}" class="form-control" maxlength="14" size="15" />
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label" for="nome">SKU:</label>
+							<input type="text" name="sku" placeholder="Digite o SKU" id="sku" value="${livro.sku}" class="form-control" maxlength="50" size="50" />
 						</div>
 						
 						<div class="form-group">
 							<label class="control-label" for="nome">ISBN:</label>
-							<input type="text" name="isbn" id="isbn" value="${livro.isbn}" class="form-control" maxlength="14" size="15" />
+							<input type="text" name="isbn" placeholder="Digite o ISBN" id="isbn" value="${livro.isbn}" class="form-control" maxlength="14" size="15" />
 						</div>
 						
 						<hr>
 						
 						<a class="btn btn-default btn-lg" href="${contextPath}/livro">Cancelar</a>
-						<button type="submit" class="btn btn-primary btn-lg">Gravar</button>
+						<button type="submit" class="btn btn-success btn-lg">Gravar</button>
                             
                         <br>
                         <br>

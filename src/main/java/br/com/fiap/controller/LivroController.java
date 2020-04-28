@@ -64,7 +64,9 @@ public class LivroController {
 	}
 	
 	@PostMapping
-	public String save(@Valid LivroModel livroModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String save(@Valid LivroModel livroModel,
+			BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
 			return "novo-livro";

@@ -42,7 +42,6 @@
 					<h2 class="text-center text-info ">${livro.titulo}</h2>
 					
 					<table class="table table-striped table-bordered" cellspacing="0" cellpadding="0">
-					
 					<thead>
 						<tr>
 							<th class="text-center" data-field="name">Editora</th>
